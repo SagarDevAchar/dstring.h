@@ -1,42 +1,44 @@
 #include <stdlib.h>
 
 typedef struct dynamicString {
-    char* string;
+    char *string;
     int length;
 
     char firstChar;
     char lastChar;
 } dstring;
 
-dstring new_dstring(char* str);
+dstring new_dstring(char *str);
 
 int dstrlen(dstring ds);
 
-int dstrcat(dstring* dest, dstring* source);
+void dstrrev(dstring *dstr);
 
-int dstrcatr(dstring* dest, char* source);
+int dstrcat(dstring *dest, dstring *source);
 
-void dstrcpy(dstring* dest, dstring* source);
+int dstrcatr(dstring *dest, char *source);
 
-void dstrcpyr(dstring* dest, char* source);
+void dstrcpy(dstring *dest, dstring *source);
 
-int dstrcmp(dstring* dstr1, dstring* dstr2);
+void dstrcpyr(dstring *dest, char *source);
 
-int dstrcmpr(dstring* dstr, char* str);
+int dstrcmp(dstring *dstr1, dstring *dstr2);
 
-void dstrlower(dstring* dstr);
+int dstrcmpr(dstring *dstr, char *str);
 
-void dstrupper(dstring* dstr);
+void dstrlower(dstring *dstr);
 
-dstring dsubstr(dstring* dstr, int start, int length);
+void dstrupper(dstring *dstr);
 
-char* dsubstrr(dstring* dstr, int start, int length);
+dstring dsubstr(dstring *dstr, int start, int length);
 
-void dstrrev(dstring* dstr);
+char *dsubstrr(dstring *dstr, int start, int length);
+
+int *dstrloc(dstring *dstr, char *c);
+
+void dstrrep(dstring *dstr, char *old, char *new);
+
+void dstrdel(dstring *dstr, char del); // TBC
 
 // INCOMPLETE - Buggy
-dstring* dstrsplit(dstring* dstr, char delim);
-
-int dstrcountc(dstring* dstr, char c);
-
-int dstrcounts(dstring* dstr, char* c);
+dstring *dstrsplit(dstring *dstr, char delim);
